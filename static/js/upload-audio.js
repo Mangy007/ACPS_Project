@@ -11,6 +11,22 @@ var btnUpload = $("#upload_file"),
 				btnOuter.addClass("file_uploaded");
 			},3000);
 			var uploadedFile = URL.createObjectURL(e.target.files[0]);
+			console.log("aaya: ", uploadedFile);
+			
+    	$.ajax({
+	        type: 'POST',
+	        url:"/upload-audio",
+	        data: uploadedFile,
+	        processData: false, 
+	        contentType: false, 
+	        success: function(returnval) {
+	        	console.log("agaya");
+	        	console.log(returnval);
+	             // $("#show1").html(returnval);
+	             // $('#show1').show();
+	         }
+	    });
+
 			setTimeout(function(){
 				$("#uploaded_view").append('<audio  controls autoplay muted> <source src="'+uploadedFile+'" type="audio/mpeg"></audio>').addClass("show");
 			},3500);

@@ -4223,6 +4223,12 @@ textarea.form-control-lg {
   color: var(--bs-card-color);
 }
 
+.card-body-inside {
+  flex: 0 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+}
+
 .card-title {
   margin-bottom: var(--bs-card-title-spacer-y);
 }
