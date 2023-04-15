@@ -11,12 +11,16 @@ var btnUpload = $("#upload_file"),
 				btnOuter.addClass("file_uploaded");
 			},3000);
 			var uploadedFile = URL.createObjectURL(e.target.files[0]);
-			console.log("aaya: ", uploadedFile);
+			// console.log("aaya: ", uploadedFile);
+			var audioFile = new File([ e.target.files[0] ], btnUpload.val());      
+			var form    = new FormData();
+			form.append("audio", audioFile);
 			
     	$.ajax({
 	        type: 'POST',
 	        url:"/upload-audio",
-	        data: uploadedFile,
+	        data: form,
+			dataType: "json",
 	        processData: false, 
 	        contentType: false, 
 	        success: function(returnval) {
