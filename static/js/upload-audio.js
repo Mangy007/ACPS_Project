@@ -27,9 +27,9 @@ var btnUpload = $("#upload_file"),
 	        	console.log("agaya");
 	        	console.log(returnval);
 				$("#uploaded_view").append('<audio  controls autoplay muted> <source src="'+uploadedFile+'" type="audio/mpeg"></audio>').addClass("show");
-				if(returnval['result']) {
+				if(returnval['status']) {
 					// if result is true print the button for classification
-					if(returnval['status']) {
+					if(returnval['result']) {
 						// returns distress
 						$("#uploaded_view").append('<button class="btn danger">Distress</button>').addClass("show");
 					}

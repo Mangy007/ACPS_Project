@@ -25,7 +25,9 @@ function getWeather() {
       jsonCallback: 'jsonp',
       cache: false,
       success: function (data) {
-        console.log(data.main.temp);
+        $('#degreeFetch').text(Math.floor(data.main.temp)+"°C");
       }
     });
   }
+
+  setTimeout(getWeather(), 10000);
