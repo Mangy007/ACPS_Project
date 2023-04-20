@@ -12,21 +12,23 @@ def split_audio(filepath):
     curr_dir = os.getcwd()
     out_dir = r'/split_audio'
     # assign files
-    try:
-        os.remove("split_audio")
-        os.remove(os.path.basename(filepath[:-4]) + ".wav")
-    except:
-        print("No wav file exists.")
-    os.chdir(os.path.join(curr_dir, 'audio_data'))
-    input_file = os.path.basename(filepath)
-    output_file = os.path.basename(filepath[:-4]) + ".wav"
-    # convert mp3 file to wav file
-    sound = AudioSegment.from_mp3(input_file)
-    sound.export(output_file, format="wav")
-    os.remove(input_file)
-    os.chdir(curr_dir)
 
-    filepath = filepath[:-4] + ".wav"
+    # try:
+    #     # os.remove("split_audio")
+    #     os.remove(os.path.basename(filepath[:-4]) + ".wav")
+    # except:
+    #     print("No wav file exists.")
+    # os.chdir(os.path.join(curr_dir, 'audio_data'))
+    # input_file = os.path.basename(filepath)
+    # output_file = os.path.basename(filepath[:-4]) + ".wav"
+    # # convert mp3 file to wav file
+    # sound = AudioSegment.from_mp3(input_file)
+    # sound.export(output_file, format="wav")
+    # os.remove(input_file)
+    # os.chdir(curr_dir)
+    # filepath = filepath[:-4] + ".wav"
+
+    print('filepath = ', filepath)
 
     y, sr = librosa.load(filepath)
     # y = librosa.effects.split(y_noisy, top_db=20) #remove silent (<20 dB) parts
@@ -34,21 +36,37 @@ def split_audio(filepath):
     segment_dur_secs = 1 
     segment_length = sr * segment_dur_secs
     
-    num_sections = int(np.ceil(len(y) / segment_length))
+    
 
     split = []
 
-    for i in range(num_sections):
-        t = y[i * segment_length: (i + 1) * segment_length]
+    # slice_length=1
+    # overlap=0.3
+    # slices=np.arange(0,len(y),slice_length-overlap,dtype=np.int)
+    overlap = 0.3
+    start = 0
+    end = segment_length
+    num_sections = 0
+    while start<len(y):
+        # t = y[i * segment_length: (i + 1) * segment_length]
+        if(end<len(y)):
+            t = y[start: end]
+        else:
+            t = y[start: ]
+        start = int(segment_length*(1-overlap) + start)
+        end = int(start+segment_length)
         split.append(t.astype("float64"))
+        num_sections+=1
 
     split_audio_dir = os.path.join(curr_dir, out_dir)
     os.chdir("."+split_audio_dir)
+
+    print("Number of sections = ", num_sections)
+
     for i in range(num_sections):
         recording_name = os.path.basename(filepath[:-4])
         out_file = f"{recording_name}_{str(i)}.wav"
         sf.write(out_file, split[i], sr)
-        print("Write successful.")
     os.chdir(curr_dir)
     print("Data split.")
 
@@ -85,7 +103,7 @@ def preprocess_data(filepath) -> list:
         shutil.rmtree(os.path.join(curr_dir, 'split_audio'), ignore_errors=True)
         print("Deleted split_audio.")
     except:
-        print("Could dnot delete split_audio.")
+        print("Could not delete split_audio.")
     
     return file_name
 
@@ -103,10 +121,9 @@ def model_predict(filepath_list):
 
         images = np.vstack([x])
         classes = model.predict(images, batch_size=BATCH_SIZE)
+        print('predicted class  ',classes)
         # print(classes) #[x, y] where x is the probability of class="Distress", and y is the probability of class="Not Distress"
         if(classes[0][0]>0.5):
             sum+=1
-    
-    print("Sum = ",  sum)
 
     return sum
