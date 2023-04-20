@@ -46,9 +46,13 @@
                             </a>
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
+                    <!-- <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         ACPS
+                    </div> -->
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        <div class="small" style="padding-top: 5px;">ACPS:</div>
                     </div>
                 </nav>
             </div>
@@ -57,17 +61,41 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
                         <div class="row">
-                            <div class="col-xl-3 col-md-6">
+                            <!-- Temperature box -->
+                            <!-- <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Temperature</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <span class="small text-white stretched-link">26 degree</span>
-                                        <div class="small text-white"></div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between"> -->
+                                        <div class="weatherWidget" ></div>
+                                            <script>
+                                                window.weatherWidgetConfig =  window.weatherWidgetConfig || [];
+                                                window.weatherWidgetConfig.push({
+                                                    selector:".weatherWidget",
+                                                    apiKey:"9QWLD3M3K2BLX22ESQMEM3DCV",
+                                                    location:"Rupnagar, India", //Enter an address
+                                                    unitGroup:"metric", //"us" or "metric"
+                                                    forecastDays:7, //how many days forecast to show
+                                                    title:"Rupnagar,India", //optional title to show in the 
+                                                    showTitle:true, 
+                                                    showConditions:true
+                                                });
+                                            
+                                                (function() {
+                                                var d = document, s = d.createElement('script');
+                                                s.src = 'https://www.visualcrossing.com/widgets/forecast-simple/weather-forecast-widget-simple.js';
+                                                s.setAttribute('data-timestamp', +new Date());
+                                                (d.head || d.body).appendChild(s);
+                                                })();
+                                            </script>
+                                         </div>
+                                        <!-- <span class="small text-white stretched-link">26 degree</span> -->
+                                        <!-- <div class="small text-white"></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                            <!-- Distress Call box -->
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
+                                <div class="card bg-danger text-white mb-4" style="width:1634px;">
                                     <div class="card-body">Distress Calls</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="distress-details.html">View Details</a>

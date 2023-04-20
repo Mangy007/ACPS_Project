@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request
 from werkzeug.utils import secure_filename
 import os
+import shutil
 
 import model
 # from flask_wtf import FlaskForm
@@ -27,18 +28,29 @@ def handleUploadFile(f):
 
 @app.route('/upload-audio', methods=['POST'])
 def upload():
-    print("aaaaaaaaaa")
+    curr_dir = os.getcwd()
     if request.method == 'POST':
         audio_file = request.files["audio"]
         audio_file_path = os.path.join("audio_data/", audio_file.filename.rsplit('\\')[-1])
         audio_file.save(audio_file_path)
-        mel_data_file_path = model.preprocess_data(audio_file_path)
-        predicted_class = model.model_predict(mel_data_file_path)
-
+        os.makedirs("./mel_data", exist_ok=True)
+        mel_data_file_path_list = model.preprocess_data(audio_file_path)
+        predict = model.model_predict(mel_data_file_path_list)
+        try:
+            shutil.rmtree(os.path.join(curr_dir, "mel_data"), ignore_errors=True)
+            print("Deleted mel_data.")
+        except:
+            print("Could not delete mel_data.")
+            return {"status": False}
         # handleUploadFile(request.files["audio"])
-        return {"status": True, "result": True}
-    print("dhoooooooom")
-    return {"status": True}
+        if predict:
+            print("Distress Detected.")
+            return {"status": True, "result": True}
+        else:
+            print("Distress not detected.")
+            return {"status": True, "result": False}
+        
+    return {"status": False}
 
 @app.route('/upload-audio.html', methods=['GET', 'POST'])
 def upload_file():
