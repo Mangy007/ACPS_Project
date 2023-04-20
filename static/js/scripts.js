@@ -16,3 +16,16 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+function getWeather() {
+    var url = 'https://api.openweathermap.org/data/2.5/weather?lat=30.9686&lon=76.4733&appid=23f7107e293e5bbf67c1dbd0e1e1ea70&units=metric';
+    $.ajax({
+      dataType: "jsonp",
+      url: url,
+      jsonCallback: 'jsonp',
+      cache: false,
+      success: function (data) {
+        console.log(data.main.temp);
+      }
+    });
+  }
