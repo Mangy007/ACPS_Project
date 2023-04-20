@@ -29,17 +29,12 @@ def handleUploadFile(f):
 def upload():
     print("aaaaaaaaaa")
     if request.method == 'POST':
-        print(request.files.keys())
-        print(request.files["audio"])
         audio_file = request.files["audio"]
         audio_file_path = os.path.join("audio_data/", audio_file.filename.rsplit('\\')[-1])
-        print(audio_file.content_length)
-        print(audio_file)
         audio_file.save(audio_file_path)
         mel_data_file_path = model.preprocess_data(audio_file_path)
-        model.model_predict(mel_data_file_path)
-        
-        print("aagayaaaaaaa")
+        predicted_class = model.model_predict(mel_data_file_path)
+
         # handleUploadFile(request.files["audio"])
         return {"status": True, "result": True}
     print("dhoooooooom")

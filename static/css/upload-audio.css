@@ -19,3 +19,19 @@ body {background: #f6f6f6; color: #444; font-family: 'Roboto', sans-serif; font-
 .uploaded_file_view img {max-width: 100%;}
 .uploaded_file_view.show {opacity: 1;}
 .error_msg {text-align: center; color: #f00}
+
+.btn {
+    border: none; /* Remove borders */
+    color: white; /* Add a text color */
+    padding: 14px 28px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+  }
+  
+  .success {background-color: #04AA6D;} /* Green */
+  .success:hover {background-color: #46a049;}
+  
+  .warning {background-color: #ff9800;} /* Orange */
+  .warning:hover {background: #e68a00;}
+  
+  .danger {background-color: #f44336;} /* Red */
+  .danger:hover {background: #da190b;}
