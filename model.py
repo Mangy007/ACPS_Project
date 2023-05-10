@@ -31,7 +31,9 @@ def split_audio(filepath):
     print('filepath = ', filepath)
 
     y, sr = librosa.load(filepath)
-    # y = librosa.effects.split(y_noisy, top_db=20) #remove silent (<20 dB) parts
+    # print("type y 1:                        ",type(y))
+    y, _ = librosa.effects.trim(y, top_db=20) #remove silent (<20 dB) parts
+    # print("type y 2:                        ",type(y), y[0],)
     os.makedirs("."+out_dir, exist_ok=True)
     segment_dur_secs = 1 
     segment_length = sr * segment_dur_secs
@@ -61,7 +63,7 @@ def split_audio(filepath):
     split_audio_dir = os.path.join(curr_dir, out_dir)
     os.chdir("."+split_audio_dir)
 
-    print("Number of sections = ", num_sections)
+    # print("Number of sections = ", num_sections)
 
     for i in range(num_sections):
         recording_name = os.path.basename(filepath[:-4])
@@ -82,6 +84,7 @@ def preprocess_data(filepath) -> list:
 
         # audio_file = filepath
         y, sr = librosa.load(fp)
+        # y, _ = librosa.effects.trim(y, top_db=20)
         S = librosa.feature.melspectrogram(y=y,
                                     sr=sr,
                                     n_mels=128 * 2,)
