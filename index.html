@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Chicken Distress Classification Dataset</title>
-    <meta name="description" content="Chicken Distress Classification Dataset (CD^2) is a chicken audio and mel spectogram dataset, which has been taken from the poultry farm and been manually annotated using expert guidance. The dataset comprises of three classes Distress, Egg-laying and Feeding.">
+    <meta name="description" content="Chicken Distress Classification Dataset ([CD]^2) is a chicken audio and mel spectogram dataset, which has been taken from the poultry farm and been manually annotated using expert guidance. The dataset comprises of three classes Distress, Egg-laying and Feeding.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta property="og:image" content="/logo.png">
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="leftNav">
-          <div class="brandDiv"><a class="navbar-brand" href="/CDC23/">CD<sup>2</sup></a></div>
+          <div class="brandDiv"><a class="navbar-brand" href="/CDC23/">[CD]<sup>2</sup></a></div>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 id="appTitle">CD<sup>2</sup></h1>
+            <h1 id="appTitle">[CD]<sup>2</sup></h1>
             <h2 id="appSubtitle">Chicken Distress Classification Dataset</h2>
           </div>
         </div>
@@ -46,11 +46,11 @@
             <div class="infoCard">
               <div class="infoBody">
                 <div class="infoHeadline">
-                  <h2>What is CD<sup>2</sup>?</h2>
+                  <h2>What is [CD]<sup>2</sup>?</h2>
                 </div>
-                <p> <span><b>C</b>hicken <b>D</b>istress <b>C</b>lassification <b>D</b>ataset (CD<sup>2</sup>)</span> is a chicken audio and mel spectogram dataset, which has been taken from the poultry farm and been manually annotated using expert guidance. The dataset comprises of three classes Distress, Egg-laying and Feeding.</p>
+                <p> <span><b>C</b>hicken <b>D</b>istress <b>C</b>lassification <b>D</b>ataset ([CD]<sup>2</sup>)</span> is a chicken audio and mel spectogram dataset, which has been taken from the poultry farm and been manually annotated using expert guidance. The dataset comprises of three classes Distress, Egg-laying and Feeding.</p>
                 <hr>
-                <p><b> CD<sup>2</sup></b> contains audio and mel spectrogram data, which was annotated manually through the video recordings that was taken by us at Poultry Farm at Bainsa, Punjab. The Busra chicken breed was used. The audio was annotated at 1 sec window. The dataset was divided into training, testing and validation with 1478, 421 and 211 samples of 1 sec each respectively. </p>
+                <p><b> [CD]<sup>2</sup></b> contains audio and mel spectrogram data, which was annotated manually through the video recordings that was taken by us at Poultry Farm at Bainsa, Punjab. The Busra chicken breed was used. The audio was annotated at 1 sec window. The dataset was divided into training, testing and validation with 1478, 421 and 211 samples of 1 sec each respectively. </p>
                 <a class="btn actionBtn" href="#">What Did the Chicken Say? A Multi-class Classification Method on Chicken Vocalisations paper (Kumar, Sarkar & Dogra et. al. '23)</a>
                 <div class="infoHeadline">
                   <h2>Getting Started</h2>
@@ -58,10 +58,14 @@
                 <p> We've built a few resources to help you get started with the dataset. </p>
                 <p> Download a copy of the dataset (distributed under the  <a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a> license):
                 <ul class="list-unstyled">
-                  <li><a class="btn actionBtn inverseBtn" href="/CDC23/dataset/train-v2.0.json">Dataset</a></li>
+                  <li><a class="btn actionBtn inverseBtn" href="https://drive.google.com/drive/folders/1XArVCRyQ-eyeS-Mxk3TvxV4JzqDq7KCu?usp=sharing">Dataset</a></li>
                 </ul>
                 </p>
-                <p>Because CD<sup>2</sup> is an ongoing effort, we expect the dataset to evolve.</p>
+                <p>Because [CD]<sup>2</sup> is an ongoing effort, we expect the dataset to evolve.</p>
+                <div class="infoHeadline">
+                  <h2>Cite as:</h2>
+                </div>
+                <p> K. Mangalam, S. Sarkar, Y. Dogra, M. Saini, N. Goel. What Did the Chicken Say?: A Multi-class Classification Method on Chicken Vocalisations. International Conference on Systems and Technologies for Smart Agriculture (ICSTA 2023)</p>
                 <div class="infoHeadline">
                   <h2>Have Questions?</h2>
                 </div>
@@ -75,10 +79,16 @@
           <div class="col-md-7">
             <div class="infoCard">
               <div class="infoBody">
+              	<div class="infoHeadline">
+                  <h2>About Dataset</h2>
+                </div>
+                <audio controls>
+				  <source src="/CDC23/assets/audio/distress.wav" type="audio/wav">
+				</audio>
+                <img src="/CDC23/assets/img/distress.jpg" alt="Distress">
                 <div class="infoHeadline">
                   <h2>Results</h2>
                 </div>
-                <p>SQuAD2.0 tests the ability of a system to not only answer reading comprehension questions, but also abstain when presented with a question that cannot be answered based on the provided paragraph.</p>
                 <table class="table performanceTable">
                   <tr>
                     <th>Rank</th>
@@ -89,12 +99,12 @@
                   <tr class="human-row">
                     <td></td>
                     <td>
-                      Human Performance
-                      <p class="institution">Stanford University</p>
-                      <a href="http://arxiv.org/abs/1606.05250">(Rajpurkar & Jia et al. '18)</a>
+                      Baseline
+                      <p class="institution">IIT Ropar</p>
+                      <a href="#">(Kumar, Sarkar & Dogra et. al. '23)</a>
                     </td>
-                    <td>86.831</td>
-                    <td>89.452</td>
+                    <td>92.23</td>
+                    <td>88</td>
                   </tr>
               	</table>
               </div>
@@ -108,7 +118,7 @@
         <div class="rightNav">
           <div>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/CDC23/">CD<sub>2</sub></a></li>
+              <li><a href="/CDC23/">[CD]<sub>2</sub></a></li>
               <li><a href="https://cse.iitrpr.ac.in/mrig/cse.iitrpr.ac.in/mrig/index.html">Multimedia Research and Innovation Group</a></li>
             </ul>
           </div>
