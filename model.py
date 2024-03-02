@@ -113,7 +113,7 @@ def model_predict(filepath_list):
 
     sum = 0
 
-    model = tf.keras.models.load_model('./cdd_model.h5')
+    model = tf.keras.models.load_model('./model/cdd_model.h5')
     for filepath in filepath_list:
         img = tf.keras.preprocessing.image.load_img(filepath, target_size=(IMG_WIDTH, IMG_HEIGHT))
         x = tf.keras.preprocessing.image.img_to_array(img)
