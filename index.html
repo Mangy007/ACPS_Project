@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Chicken Distress Classification Dataset</title>
-    <meta name="description" content="Stanford Question Answering Dataset (SQuAD) is a new reading comprehension dataset, consisting of questions posed by crowdworkers on a set of Wikipedia articles, where the answer to every question is a segment of text, or span, from the corresponding reading passage. With 100,000+ question-answer pairs on 500+ articles, SQuAD is significantly larger than previous reading comprehension datasets.">
+    <meta name="description" content="Chicken Distress Classification Dataset (CD^2) is a chicken audio and mel spectogram dataset, which has been taken from the poultry farm and been manually annotated using expert guidance. The dataset comprises of three classes Distress, Egg-laying and Feeding.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta property="og:image" content="/logo.png">
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="leftNav">
-          <div class="brandDiv"><a class="navbar-brand" href="/CDC23/">CDC23</a></div>
+          <div class="brandDiv"><a class="navbar-brand" href="/CDC23/">CD<sup>2</sup></a></div>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 id="appTitle">CDC23</h1>
+            <h1 id="appTitle">CD<sup>2</sup></h1>
             <h2 id="appSubtitle">Chicken Distress Classification Dataset</h2>
           </div>
         </div>
@@ -46,49 +46,29 @@
             <div class="infoCard">
               <div class="infoBody">
                 <div class="infoHeadline">
-                  <h2>What is CDC23?</h2>
+                  <h2>What is CD<sup>2</sup>?</h2>
                 </div>
-                <p> <span><b>S</b>tanford <b>Qu</b>estion <b>A</b>nswering <b>D</b>ataset (SQuAD) </span>is a reading comprehension dataset, consisting of questions posed by crowdworkers on a set of Wikipedia articles, where the answer to every question is a segment of text, or <i>span</i>, from the corresponding reading passage, or the question might be unanswerable.</p>
+                <p> <span><b>C</b>hicken <b>D</b>istress <b>C</b>lassification <b>D</b>ataset (CD<sup>2</sup>)</span> is a chicken audio and mel spectogram dataset, which has been taken from the poultry farm and been manually annotated using expert guidance. The dataset comprises of three classes Distress, Egg-laying and Feeding.</p>
                 <hr>
-                <p><b> SQuAD2.0</b> combines the 100,000 questions in SQuAD1.1 with over 50,000 unanswerable questions written adversarially by crowdworkers to look similar to answerable ones. To do well on SQuAD2.0, systems must not only answer questions when possible, but also determine when no answer is supported by the paragraph and abstain from answering.</p>
-                <a class="btn actionBtn" href="http://arxiv.org/abs/1806.03822">SQuAD2.0 paper (Rajpurkar & Jia et al. '18)</a>
+                <p><b> CD<sup>2</sup></b> contains audio and mel spectrogram data, which was annotated manually through the video recordings that was taken by us at Poultry Farm at Bainsa, Punjab. The Busra chicken breed was used. The audio was annotated at 1 sec window. The dataset was divided into training, testing and validation with 1478, 421 and 211 samples of 1 sec each respectively. </p>
+                <a class="btn actionBtn" href="#">What Did the Chicken Say? A Multi-class Classification Method on Chicken Vocalisations paper (Kumar, Sarkar & Dogra et. al. '23)</a>
                 <div class="infoHeadline">
                   <h2>Getting Started</h2>
                 </div>
-                <p>We've built a few resources to help you get started with the dataset.</p>
+                <p> We've built a few resources to help you get started with the dataset. </p>
                 <p> Download a copy of the dataset (distributed under the  <a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a> license):
                 <ul class="list-unstyled">
-                  <li><a class="btn actionBtn inverseBtn" href="/CDC23/dataset/train-v2.0.json" download>Training Set v2.0 (40 MB)</a></li>
-                  <li><a class="btn actionBtn inverseBtn" href="/CDC23/dataset/dev-v2.0.json" download>Dev Set v2.0 (4 MB)</a></li>
+                  <li><a class="btn actionBtn inverseBtn" href="/CDC23/dataset/train-v2.0.json">Dataset</a></li>
                 </ul>
                 </p>
-                <p>To evaluate your models, we have also made available the evaluation script we will use for official evaluation, along with a sample prediction file that the script will take as input. To run the evaluation, use <code>python evaluate-v2.0.py &lt;path_to_dev-v2.0&gt; &lt;path_to_predictions&gt;</code>.
-                <ul class="list-unstyled">
-                  <li><a class="btn actionBtn inverseBtn" href="https://worksheets.codalab.org/rest/bundles/0x6b567e1cf2e041ec80d7098f031c5c9e/contents/blob/" download>Evaluation Script v2.0</a></li>
-                  <li><a class="btn actionBtn inverseBtn" href="https://worksheets.codalab.org/bundles/0x8731effab84f41b7b874a070e40f61e2/" download>Sample Prediction File (on Dev v2.0)</a></li>
-                </ul>
-                </p>
-                <p>Once you have a built a model that works to your expectations on the dev set, you submit it to get official scores on the dev and a hidden test set. To preserve the integrity of test results, we do not release the test set to the public. Instead, we require you to submit your model so that we can run it on the test set for you. Here's a tutorial walking you through official evaluation of your model:</p>
-                <a class="btn actionBtn inverseBtn" href="https://worksheets.codalab.org/worksheets/0x8212d84ca41c4150b555a075b19ccc05/">Submission Tutorial</a>
-                <p>Because SQuAD is an ongoing effort, we expect the dataset to evolve.</p>
-                <p>To keep up to date with major changes to the dataset, please subscribe:</p>
-                <div id="mc_embed_signup">
-                  <form class="validate" id="mc-embedded-subscribe-form" action="//google.us13.list-manage.com/subscribe/post?u=1842e6560d6e10316b4e1aaf5&amp;id=76586bdcf4" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate="">
-                    <div id="mc_embed_signup_scroll">
-                      <input class="email" id="mce-EMAIL" type="email" value="" name="EMAIL" placeholder="email address" required="">
-                      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1842e6560d6e10316b4e1aaf5_76586bdcf4" tabindex="-1" value=""></div>
-                      <div class="clear"><input class="button" id="mc-embedded-subscribe" type="submit" value="Subscribe" name="subscribe"></div>
-                    </div>
-                  </form>
-                </div>
+                <p>Because CD<sup>2</sup> is an ongoing effort, we expect the dataset to evolve.</p>
                 <div class="infoHeadline">
                   <h2>Have Questions?</h2>
                 </div>
-                <p> Ask us questions at our   <a href="https://groups.google.com/forum/#!forum/squad-stanford-qa">google group</a> or at <a href="mailto:robinjia@stanford.edu">robinjia@stanford.edu</a>.</p>
+                <p> Ask us questions at <a href="mailto:2022aim1002@iitrpr.ac.in">2022aim1002@iitrpr.ac.in</a>.</p>
               </div>
               <div class="infoSubheadline">
-                <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://stanford-qa.com" data-text="The Stanford Question Answering Dataset - 100,000+ questions for reading comprehension" data-via="stanfordnlp" data-size="large" data-hashtags="SQuAD">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><!-- Place this tag where you want the button to render. -->
-                <a class="github-button" href="https://github.com/rajpurkar/CDC23" data-icon="octicon-star" data-style="mega" data-count-href="/rajpurkar/CDC23/stargazers" data-count-api="/repos/rajpurkar/CDC23#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star rajpurkar/CDC23 on GitHub">Star</a>
+                <a class="github-button" href="https://github.com/Mangy007/CDC23" data-icon="octicon-star" data-style="mega" data-count-href="/Mangy007/CDC23/stargazers" data-count-api="/repos/rajpurkar/CDC23#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Mangy007/CDC23 on GitHub">Star</a>
               </div>
             </div>
           </div>
@@ -96,14 +76,14 @@
             <div class="infoCard">
               <div class="infoBody">
                 <div class="infoHeadline">
-                  <h2>Leaderboard</h2>
+                  <h2>Results</h2>
                 </div>
                 <p>SQuAD2.0 tests the ability of a system to not only answer reading comprehension questions, but also abstain when presented with a question that cannot be answered based on the provided paragraph.</p>
                 <table class="table performanceTable">
                   <tr>
                     <th>Rank</th>
                     <th>Model</th>
-                    <th>EM</th>
+                    <th>Accuracy</th>
                     <th>F1</th>
                   </tr>
                   <tr class="human-row">
@@ -128,7 +108,7 @@
         <div class="rightNav">
           <div>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/CDC23/">CDC23</a></li>
+              <li><a href="/CDC23/">CD<sub>2</sub></a></li>
               <li><a href="https://cse.iitrpr.ac.in/mrig/cse.iitrpr.ac.in/mrig/index.html">Multimedia Research and Innovation Group</a></li>
             </ul>
           </div>
